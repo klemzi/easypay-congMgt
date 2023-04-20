@@ -1,6 +1,7 @@
 # Role only tested with one control plane and more nodes
 # this is fine with what is requested from the captsone
 - name: Kubernetes setup
+  become: true
   hosts:
     - c_planes
     - nodes
