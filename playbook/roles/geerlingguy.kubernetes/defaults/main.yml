@@ -70,5 +70,3 @@ kubernetes_flannel_manifest_file: https://raw.githubusercontent.com/flannel-io/f
 
 # Calico config file.
 kubernetes_calico_manifest_file: https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/calico.yaml
-
-
