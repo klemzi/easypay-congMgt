@@ -8,12 +8,12 @@
   vars:
     docker_users:
       - ubuntu
-    kubernetes_version: 1.23.4
+    kubernetes_version: 1.25
     kubernetes_allow_pods_on_control_plane: false # control plane will be tainted
     kubernetes_pod_network: # Use Calico CNI. The default is Flannel
       cni: 'calico'
       cidr: '192.168.0.0/16'
 
   roles:
-    - geerlingguy.docker
+    - geerlingguy.containerd
     - geerlingguy.kubernetes
