@@ -11,6 +11,6 @@
 - name: Setup cron job for etcd backup
   ansible.builtin.cron:
     name: etcd backup
-    hour: 23
-    minute: 45
+    hour: "23"
+    minute: "45"
     job: "~/.etcd-backup.sh"
