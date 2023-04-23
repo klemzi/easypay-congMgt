@@ -34,14 +34,14 @@
 
 - name: Ensure .kube directory exists.
   file:
-    path: ~/.kube
+    path: "{{home_dir}}/.kube"
     state: directory
     mode: 0755
 
 - name: Symlink the kubectl admin.conf to ~/.kube/conf.
   file:
     src: /etc/kubernetes/admin.conf
-    dest: ~/.kube/config
+    dest: "{{home_dir}}/.kube/config"
     state: link
     mode: 0644
 

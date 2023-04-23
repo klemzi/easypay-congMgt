@@ -1,4 +1,7 @@
 ---
+# ubuntu user default
+home_dir: "/home/ubuntu"
+
 kubernetes_packages:
   - name: kubelet
     state: present
