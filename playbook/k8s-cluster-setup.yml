@@ -6,8 +6,6 @@
     - c_planes
     - nodes
   vars:
-    docker_users:
-      - ubuntu
     kubernetes_version: 1.25
     kubernetes_join_command_extra_opts: "--ignore-preflight-errors=all"
     containerd_config_cgroup_driver_systemd: true
@@ -19,3 +17,8 @@
   roles:
     - geerlingguy.containerd
     - geerlingguy.kubernetes
+  tasks:
+    - name: ETCD backup cron job
+      ansible.builtin.include_tasks:
+        file: ./tasks/etcd-backup.yml
+      when: kubernetes_role == "control_plane"
