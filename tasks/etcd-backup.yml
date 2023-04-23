@@ -5,12 +5,12 @@
     state: present
 - name: Copy job to control plane
   ansible.builtin.copy:
-    src: ./etcd-snap.sh
-    dest: ~/.etcd-backup.sh
+    src: "./etcd-snap.sh"
+    dest: "~/.etcd-backup.sh"
     mode: 0555
 - name: Setup cron job for etcd backup
   ansible.builtin.cron:
     name: etcd backup
     hour: 23
     minute: 45
-    job: ~/.etcd-backup.sh
+    job: "~/.etcd-backup.sh"
