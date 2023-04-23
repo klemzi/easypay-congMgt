@@ -9,6 +9,7 @@
     docker_users:
       - ubuntu
     kubernetes_version: 1.25
+    kubernetes_join_command_extra_opts: "--ignore-preflight-errors=all"
     containerd_config_cgroup_driver_systemd: true
     kubernetes_allow_pods_on_control_plane: false # control plane will be tainted
     kubernetes_pod_network: # Use Calico CNI. The default is Flannel
