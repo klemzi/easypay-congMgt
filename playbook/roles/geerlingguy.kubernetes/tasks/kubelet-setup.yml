@@ -10,9 +10,6 @@
     path: '{{ kubelet_environment_file_path }}'
   register: kubelet_environment_file
 
-- name: Disable swap memory
-  command: swapoff -a
-
 - name: Set facts for KUBELET_EXTRA_ARGS task if environment file exists. (deprecated)
   set_fact:
     kubelet_args_path: '{{ kubelet_environment_file_path }}'

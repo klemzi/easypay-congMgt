@@ -6,6 +6,12 @@
       - ca-certificates
     state: present
 
+- name: Edit fstab to disable swap at boot
+  command: sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
+
+- name: Disable swap memory now
+  command: swapoff -a
+
 - name: Add Kubernetes apt key.
   apt_key:
     url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
