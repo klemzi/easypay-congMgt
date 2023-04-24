@@ -23,3 +23,7 @@
       ansible.builtin.include_tasks:
         file: ./tasks/etcd-backup.yml
       when: kubernetes_role == "control_plane"
+    - name: Install metrics server
+      ansible.builtin.include_tasks:
+        file: ./tasks/metrics-server.yml
+      when: kubernetes_role == "control_plane"
