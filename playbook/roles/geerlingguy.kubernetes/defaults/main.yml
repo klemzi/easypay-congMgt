@@ -72,4 +72,4 @@ kubernetes_yum_repo_gpg_check: true
 kubernetes_flannel_manifest_file: https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml
 
 # Calico config file.
-kubernetes_calico_manifest_file: https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/calico.yaml
+kubernetes_calico_manifest_file: 'https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/calico.yaml'
