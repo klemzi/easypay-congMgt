@@ -46,6 +46,7 @@
     mode: 0644
 
 - name: Configure Flannel networking.
+  become: false
   command: "kubectl apply -f {{ kubernetes_flannel_manifest_file }}"
   register: flannel_result
   changed_when: "'created' in flannel_result.stdout"
@@ -54,6 +55,7 @@
   delay: 5
 
 - name: Configure Calico networking.
+  become: false
   command: "kubectl apply -f {{ kubernetes_calico_manifest_file }}"
   register: calico_result
   changed_when: "'created' in calico_result.stdout"
@@ -70,6 +72,7 @@
   delay: 5
 
 - name: Configure Weave networking.
+  become: false
   command: "{{ item }}"
   with_items:
     - "kubectl apply -f https://cloud.weave.works/k8s/net?k8s-version={{ kubectl_version.stdout_lines[0] }}"
@@ -80,6 +83,7 @@
 # TODO: Check if taint exists with something like `kubectl describe nodes`
 # instead of using kubernetes_init_stat.stat.exists check.
 - name: Allow pods on control plane (if configured).
+  become: false
   command: "kubectl taint nodes --all node-role.kubernetes.io/control-plane-"
   when:
     - kubernetes_allow_pods_on_control_plane | bool
