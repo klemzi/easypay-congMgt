@@ -7,6 +7,8 @@
     - nodes
   vars:
     home_dir: "/home/{{ansible_ssh_user}}"
+    create_namespace: true
+    namespace: easypay
     kubernetes_version: 1.25
     kubernetes_join_command_extra_opts: "--ignore-preflight-errors=all"
     containerd_config_cgroup_driver_systemd: true

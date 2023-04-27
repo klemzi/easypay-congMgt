@@ -1,3 +1,8 @@
+- name: Create namespace easypay
+  become: false
+  command: "kubectl create ns {{ namespace | default("easypay", true) }}"
+  when: create_namespace == true
+
 - name: Download metrics server manifest
   become: false
   ansible.builtin.get_url:
