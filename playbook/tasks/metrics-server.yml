@@ -7,6 +7,4 @@
 
 - name: Apply metrics-server manifest to the cluster
   become: false
-  kubernetes.core.k8s:
-    src: "{{ home_dir }}/metrics-server.yaml"
-    state: present
+  command: "kubectl apply -f {{ home_dir }}/metrics-server.yaml"
