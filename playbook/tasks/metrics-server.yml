@@ -1,6 +1,6 @@
 - name: Create namespace easypay
   become: false
-  command: "kubectl create ns {{ namespace | default("easypay", true) }}"
+  command: "kubectl create ns {{ namespace }}"
   when: create_namespace == true
 
 - name: Download metrics server manifest
